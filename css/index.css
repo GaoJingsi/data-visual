@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'LCD';
+    src: url(../fonts/LCD.ttf);
+}
+html {
+    font-size: 16px;
+}
+
+html, body, .container {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.container {
+    background-image: url(../images/bg.png);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.container .header {
+    height: 105px;
+    line-height: 105px;
+    background-image: url(../images/header.png);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.container .header .title {
+    text-align: center;
+    margin: 0;
+    height: 70px;
+    line-height: 70px;
+    vertical-align: top;
+    font-size: 2rem;
+}
+
+.container .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: calc(100% - 105px);
+}
+
+.container .main .center {
+    width: 35%;
+}
+
+.container .main .left, .container .main .right {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container .main .top, .container .main .middle, .container .main .bottom {
+    height: 30%;
+    background-image: url(../images/panel.png);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.container .main .top .title, .container .main .middle .title, .container .main .bottom .title {
+    height: 24px;
+    line-height: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.container .main .top .chart, .container .main .middle .chart, .container .main .bottom .chart {
+    height: calc(100% - 24px);
+    width: 100%;
+}
+
+.container .main .left .bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .main .left .bottom .item {
+    width: calc(100% / 3);
+    height: 100%;
+}
+
+.container .main .quota {
+    height: 105px;
+    width: 100%;
+    background-color: rgba(101,132,226,.1);
+    display: flex;
+    flex-direction: row;
+}
+
+.container .main .quota .quota-item {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+}
+
+.container .main .quota .quota-title {
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.container .main .quota .quota-data {
+    width: 100%;
+    font-family: 'LCD';
+    color: #ffeb7b;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .main .quota .quota-data span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.container .main .map {
+    width: 100%;
+    height: calc(100% - 105px);
+}
