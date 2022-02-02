@@ -2,6 +2,46 @@
     font-family: 'LCD';
     src: url(../fonts/LCD.ttf);
 }
+
+@keyframes turnaround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes turnaroundreverse {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes turnaround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes turnaround2 {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 html {
     font-size: 16px;
 }
@@ -10,6 +50,7 @@ html, body, .container {
     width: 100%;
     height: 100%;
     color: #fff;
+    overflow: hidden;
 }
 
 .container {
@@ -93,7 +134,7 @@ html, body, .container {
 .container .main .quota {
     height: 105px;
     width: 100%;
-    background-color: rgba(101,132,226,.1);
+    background-color: rgba(101, 132, 226, .1);
     display: flex;
     flex-direction: row;
 }
@@ -130,6 +171,47 @@ html, body, .container {
 }
 
 .container .main .map {
+    position: relative;
     width: 100%;
     height: calc(100% - 105px);
+}
+
+.container .main .map > div[class^=map] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .main .map > div[class^=map] img {
+    width: 80%;
+}
+
+.container .main .map > div.map2 img {
+    width: 87%;
+    animation: turnaroundreverse 10s linear 2s infinite normal;
+}
+
+.container .main .map > div.map3 img {
+    animation: turnaround 10s linear 2s infinite normal;
+}
+
+.container .main .map > div.map1 {
+    z-index: 1;
+}
+
+.container .main .map > div.map2 {
+    z-index: 2;
+}
+
+.container .main .map > div.map3 {
+    z-index: 3;
+}
+
+.container .main .map > div.map-content {
+    z-index: 4;
 }
