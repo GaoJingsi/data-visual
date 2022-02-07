@@ -7,6 +7,7 @@ window.addEventListener('load', function () {
     initRightTop();
     initRightMiddle();
     initRightBottom();
+    initMap();
 });
 
 function initLeftTop() {
@@ -559,7 +560,7 @@ function initRightBottom() {
             }
         },
         polar: {
-            radius:['0','70%'],
+            radius: ['0', '70%'],
         },
         angleAxis: {
             max: 100,
@@ -728,6 +729,69 @@ function initRightBottom() {
                     borderRadius: 5
                 }
             },
+        ]
+    };
+    ec.setOption(option);
+    window.addEventListener('resize', function () {
+        ec.resize();
+    })
+}
+
+function initMap() {
+    var ec = echarts.init(document.getElementById('map'));
+    echarts.registerMap('china', china);
+    var option = {
+        color: ['#0f63d6', '#0f78d6', '#0f8cd6', '#0fa0d6', '#0fb4d6'],
+        tooltip: {
+            trigger: 'item',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            left: 'center',
+            top: 'bottom',
+            data: ['浙江', '上海', '江苏', '广东', '北京'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        geo: {
+            map: 'china',
+            zoom: 1.2,
+            itemStyle: {
+                areaColor: '#0f63d6',
+                borderColor: '#000'
+            }
+        },
+        grid: {
+            top: '12%',
+            bottom: '0%',
+            containLabel: true
+        },
+        series: [
+            {
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                itemStyle: {
+                    color: 'gold',
+                    opacity: 0.8
+                },
+                data: [
+                    {
+                        name: '大庆',
+                        value: [125.03, 46.58, 10],
+                        symbol: 'circle',
+                        symbolSize: 10 > 20 ? 20 : 10
+                    },
+                    {
+                        name: '武汉',
+                        value: [114.31, 30.52, 300],
+                        symbol: 'circle',
+                        symbolSize: 30 > 20 ? 20 : 30
+                    }
+                ]
+            }
         ]
     };
     ec.setOption(option);
